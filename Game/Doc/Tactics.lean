@@ -126,3 +126,24 @@ TacticDoc by_cases
 contradict each other: from a contradiction, anything follows.
 -/
 TacticDoc exfalso
+
+/--
+`apply h` works backwards from the goal. If `h` concludes the goal from some
+assumptions, `apply h` leaves those assumptions as new goals.
+
+You can fix some of `h`'s arguments by name, for example
+`apply NFA.Path.cons (q := .s1)` to choose the next state of a path.
+-/
+TacticDoc apply
+
+/--
+`use x` proves a goal `∃ a, P a` by giving the witness `x`. You are left to prove `P x`.
+-/
+TacticDoc use
+
+/--
+`unfold d` replaces the definition `d` by its body in the goal, so that
+theorems about what's inside can apply. For example `unfold DFA.inter` shows
+that `M₁.inter M₂` is a product machine.
+-/
+TacticDoc unfold

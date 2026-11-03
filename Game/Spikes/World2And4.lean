@@ -8,16 +8,6 @@ variable {α σ : Type}
 
 /-! World 2 -/
 
-def DFA.toNFA (M : DFA α σ) : NFA α σ where
-  step q x := {M.step q x}
-  start := M.start
-  accept := M.accept
-
-@[simp] theorem DFA.toNFA_step (M : DFA α σ) (q : σ) (x : α) :
-    M.toNFA.step q x = {M.step q x} := rfl
-@[simp] theorem DFA.toNFA_start (M : DFA α σ) : M.toNFA.start = M.start := rfl
-@[simp] theorem DFA.toNFA_accept (M : DFA α σ) : M.toNFA.accept = M.accept := rfl
-
 theorem DFA.toNFA_path (M : DFA α σ) (p r : σ) (w : List α) :
     M.toNFA.Path p w r ↔ M.evalFrom p w = r := by
   induction w generalizing p with
@@ -28,11 +18,11 @@ theorem DFA.toNFA_path (M : DFA α σ) (p r : σ) (w : List α) :
   | cons x xs ih =>
     constructor
     · rintro (_ | ⟨hq, hpath⟩)
-      rw [DFA.toNFA_step, Set.mem_singleton_iff] at hq
+      rw [DFA.mem_toNFA_step] at hq
       subst hq
       exact (ih _).1 hpath
     · intro h
-      exact .cons (by simp) ((ih _).2 h)
+      exact .cons rfl ((ih _).2 h)
 
 theorem DFA.toNFA_accepts (M : DFA α σ) : M.toNFA.accepts = M.accepts := by
   ext w
@@ -45,25 +35,12 @@ theorem DFA.toNFA_accepts (M : DFA α σ) : M.toNFA.accepts = M.accepts := by
   · intro h
     exact ⟨_, h, (M.toNFA_path _ _ _).2 rfl⟩
 
-/-- Strings containing `ab`: guess where it starts. -/
-inductive ABState | s0 | s1 | s2
-  deriving DecidableEq, Repr
-
-def containsAB : NFA AB ABState where
-  step q x := match q, x with
-    | .s0, _  => if x = .a then {.s0, .s1} else {.s0}
-    | .s1, .b => {.s2}
-    | .s1, .a => ∅
-    | .s2, _  => {.s2}
-  start := .s0
-  accept := {.s2}
-
 example : [AB.b, .a, .b, .a] ∈ containsAB.accepts := by
   refine ⟨.s2, rfl, ?_⟩
-  exact .cons (q := .s0) (by simp [containsAB])
-    (.cons (q := .s1) (by simp [containsAB])
-      (.cons (q := .s2) (by simp [containsAB])
-        (.cons (q := .s2) (by simp [containsAB]) (.nil _))))
+  exact .cons (q := .s0) rfl
+    (.cons (q := .s1) rfl
+      (.cons (q := .s2) rfl
+        (.cons (q := .s2) rfl (.nil _))))
 
 /-! World 4: subset construction -/
 

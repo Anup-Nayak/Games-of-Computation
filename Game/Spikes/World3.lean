@@ -7,9 +7,6 @@ namespace Automata
 namespace DFA
 variable {α σ σ₁ σ₂ : Type}
 
-def compl (M : DFA α σ) : DFA α σ :=
-  { M with accept := M.acceptᶜ }
-
 theorem compl_evalFrom (M : DFA α σ) (q : σ) (w : List α) :
     M.compl.evalFrom q w = M.evalFrom q w := by
   induction w generalizing q with
@@ -22,29 +19,18 @@ theorem compl_accepts (M : DFA α σ) : M.compl.accepts = M.acceptsᶜ := by
   rfl
 
 /-- Run two machines side by side. Accepting set chosen by the caller. -/
-def prod (M₁ : DFA α σ₁) (M₂ : DFA α σ₂) (acc : Set (σ₁ × σ₂)) : DFA α (σ₁ × σ₂) where
-  step s x := (M₁.step s.1 x, M₂.step s.2 x)
-  start := (M₁.start, M₂.start)
-  accept := acc
-
 theorem prod_evalFrom (M₁ : DFA α σ₁) (M₂ : DFA α σ₂) (acc) (p : σ₁) (q : σ₂) (w : List α) :
     (M₁.prod M₂ acc).evalFrom (p, q) w = (M₁.evalFrom p w, M₂.evalFrom q w) := by
   induction w generalizing p q with
   | nil => rfl
   | cons x xs ih => exact ih (M₁.step p x) (M₂.step q x)
 
-def inter (M₁ : DFA α σ₁) (M₂ : DFA α σ₂) : DFA α (σ₁ × σ₂) :=
-  M₁.prod M₂ {s | s.1 ∈ M₁.accept ∧ s.2 ∈ M₂.accept}
-
-def union (M₁ : DFA α σ₁) (M₂ : DFA α σ₂) : DFA α (σ₁ × σ₂) :=
-  M₁.prod M₂ {s | s.1 ∈ M₁.accept ∨ s.2 ∈ M₂.accept}
-
 theorem inter_accepts (M₁ : DFA α σ₁) (M₂ : DFA α σ₂) :
     (M₁.inter M₂).accepts = M₁.accepts ∩ M₂.accepts := by
   ext w
   simp only [mem_accepts, Set.mem_inter_iff]
   unfold inter
-  rw [show (M₁.prod M₂ _).start = (M₁.start, M₂.start) from rfl, prod_evalFrom]
+  rw [prod_start, prod_evalFrom]
   rfl
 
 theorem union_accepts (M₁ : DFA α σ₁) (M₂ : DFA α σ₂) :
@@ -52,7 +38,7 @@ theorem union_accepts (M₁ : DFA α σ₁) (M₂ : DFA α σ₂) :
   ext w
   simp only [mem_accepts, Set.mem_union]
   unfold union
-  rw [show (M₁.prod M₂ _).start = (M₁.start, M₂.start) from rfl, prod_evalFrom]
+  rw [prod_start, prod_evalFrom]
   rfl
 
 end DFA
