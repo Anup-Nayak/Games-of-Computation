@@ -14,3 +14,5 @@ jobs:
       - uses: leanprover/lean-action@v1
         with:
           use-github-cache: false
+      - name: build spike proofs
+        run: lake build Game.Spikes.World1 Game.Spikes.World3 Game.Spikes.World2And4 Game.Spikes.World5

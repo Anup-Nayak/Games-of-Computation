@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-23\n"
+"POT-Creation-Date: 2026-11-03\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -12,26 +12,16 @@ msgstr "Project-Id-Version: Game v4.23.0\n"
 msgid "level completed with warnings… 🎭"
 msgstr ""
 
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "Hello World"
+#: Game.Levels.DFA.L01_Run
+msgid "Running a machine"
 msgstr ""
 
 #: Game
-msgid "This text appears on the starting page where one selects the world/level to play.\n"
-"You can use **markdown**."
+msgid "Games of Computation"
 msgstr ""
 
 #: GameServer.RpcHandlers
 msgid "level completed! 🎉"
-msgstr ""
-
-#: Game
-msgid "Hello World Game"
-msgstr ""
-
-#. §0: `«{g}»`
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "You should use §0 now."
 msgstr ""
 
 #: GameServer.RpcHandlers
@@ -39,42 +29,98 @@ msgid "intermediate goal solved! 🎉"
 msgstr ""
 
 #: Game
-msgid "You should use this game as a template for your own game and add your own levels."
+msgid "Finite automata, proved"
+msgstr ""
+
+#. §0: `even`
+#. §1: `ab`
+#. §2: `odd`
+#: Game.Levels.DFA.L01_Run
+msgid "Starting in §0, after reading §1 the machine is in §2."
+msgstr ""
+
+#. §0: `rfl`
+#. §1: `A = A`
+#. §2: `rfl`
+#: Game.Doc.Tactics
+msgid "§0 closes a goal of the form §1, where both sides are equal\n"
+"*by definition*. Lean is allowed to unfold definitions and compute while\n"
+"checking this, so §2 can prove that a machine ends in a particular state\n"
+"after reading a short, concrete string."
+msgstr ""
+
+#. §0: `parityA`
+#. §1: `even`
+#. §2: `odd`
+#. §3: `a`
+#. §4: `b`
+#: Game.Levels.DFA.L01_Run
+msgid "A deterministic finite automaton reads a string one symbol at a time,\n"
+"moving from state to state.\n"
+"\n"
+"Our first machine, §0, has two states: §1 and §2.\n"
+"Reading §3 swaps them; reading §4 changes nothing."
 msgstr ""
 
 #: Game
-msgid "Here you can put additional information about the game. It is accessible\n"
-"from the starting through the drop-down menu.\n"
-"\n"
-"For example: Game version, Credits, Link to Github and Zulip, etc.\n"
-"\n"
-"Use **markdown**."
+msgid "Prove the classic results about finite automata and regular languages,\n"
+"one level at a time."
 msgstr ""
 
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "This last message appears if the level is solved."
+#. §0: `parityA`
+#. §1: `even`
+#. §2: `odd`
+#. §3: `a`
+#. §4: `b`
+#. §5: `even`
+#. §6: `even`
+#: Game.Doc.Definitions
+msgid "§0 has two states, §1 and §2. Reading §3 swaps them,\n"
+"reading §4 leaves the state alone. It starts in §5 and accepts in §6."
 msgstr ""
 
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "This text is shown as first message when the level is played.\n"
-"You can insert hints in the proof below. They will appear in this side panel\n"
-"depending on the proof a user provides."
+#: Game.Levels.DFA
+msgid "Deterministic Automata"
 msgstr ""
 
-#: Game.Levels.DemoWorld
-msgid "This introduction is shown before one enters level 1 of the demo world. Use markdown."
-msgstr ""
-
-#. §0: `«{h}»`
-#. §1: `«{g}»`
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "You can either start using §0 or §1."
-msgstr ""
-
-#: Game.Levels.DemoWorld
-msgid "Demo World"
+#. §0: `a`
+#. §1: `even`
+#. §2: `odd`
+#. §3: `b`
+#. §4: `rfl`
+#: Game.Levels.DFA.L01_Run
+msgid "Both sides compute to the same state: §0 takes §1 to §2,\n"
+"then §3 leaves it there. When two sides are equal just by computing,\n"
+"§4 proves it."
 msgstr ""
 
 #: Game
-msgid "Game Template"
+msgid "A game on finite automata and regular languages, built with lean4game."
+msgstr ""
+
+#: Game.Levels.DFA
+msgid "In this world you will run machines, then prove what they do on every input."
+msgstr ""
+
+#: Game.Levels.DFA.L01_Run
+msgid "Lean ran the machine for you. Soon you'll prove things about runs of\n"
+"*every* length, where computing is no longer enough."
+msgstr ""
+
+#: Game
+msgid "Learn DFAs, NFAs, closure properties and non-regularity by proving them in Lean."
+msgstr ""
+
+#. §0: `M.evalFrom q w`
+#. §1: `M`
+#. §2: `w`
+#. §3: `q`
+#. §4: `M.evalFrom q [] = q`
+#. §5: `M.evalFrom q (x :: xs) = M.evalFrom (M.step q x) xs`
+#: Game.Doc.Definitions
+msgid "§0 is the state the machine §1 is in after reading the\n"
+"string §2, starting from state §3. It reads one symbol at a time:\n"
+"\n"
+"* §4\n"
+"* §5"
 msgstr ""
