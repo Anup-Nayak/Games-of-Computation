@@ -17,8 +17,6 @@ theorem exists_collision [Finite σ] (M : DFA α σ) (f : ℕ → List α) :
     ∃ i j, i ≠ j ∧ M.evalFrom M.start (f i) = M.evalFrom M.start (f j) :=
   Finite.exists_ne_map_eq_of_infinite (fun n => M.evalFrom M.start (f n))
 
-def anbn : Lang AB := {w | ∃ n, w = List.replicate n .a ++ List.replicate n .b}
-
 /-- Level: counting letters pins down the exponents. -/
 theorem replicate_eq {i j n : ℕ}
     (h : List.replicate i AB.a ++ List.replicate j AB.b =

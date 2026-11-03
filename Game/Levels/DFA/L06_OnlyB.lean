@@ -45,4 +45,6 @@ Induction is how you prove things about strings of every length.
 NewTactic induction'
 NewTheorem List.replicate_succ
 
+NewDefinition List.replicate
+
 end Automata
