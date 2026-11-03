@@ -1,28 +1,15 @@
-import Game.Levels.DemoWorld
+import Game.Levels.DFA
 
--- Here's what we'll put on the title screen
-Title "Hello World Game"
-Introduction
+Title "Games of Computation"
+Introduction "
+Prove the classic results about finite automata and regular languages,
+one level at a time.
 "
-This text appears on the starting page where one selects the world/level to play.
-You can use **markdown**.
-"
-
 Info "
-Here you can put additional information about the game. It is accessible
-from the starting through the drop-down menu.
-
-For example: Game version, Credits, Link to Github and Zulip, etc.
-
-Use **markdown**.
+A game on finite automata and regular languages, built with lean4game.
 "
-
-/-! Information to be displayed on the servers landing page. -/
 Languages "en"
-CaptionShort "Game Template"
-CaptionLong "You should use this game as a template for your own game and add your own levels."
--- Prerequisites "" -- add this if your game depends on other games
--- CoverImage "images/cover.png"
+CaptionShort "Finite automata, proved"
+CaptionLong "Learn DFAs, NFAs, closure properties and non-regularity by proving them in Lean."
 
-/-! Build the game. Show's warnings if it found a problem with your game. -/
 MakeGame
