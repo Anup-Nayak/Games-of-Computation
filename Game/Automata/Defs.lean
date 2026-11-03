@@ -1,6 +1,8 @@
 import Mathlib.Data.Set.Basic
 import Mathlib.Data.List.Count
 import Mathlib.Data.Finite.Defs
+import Mathlib.Data.Finite.Prod
+import Game.Tactic.StepAttr
 
 namespace Automata
 
@@ -62,7 +64,54 @@ inductive Path (M : NFA α σ) : σ → List α → σ → Prop
 
 def accepts (M : NFA α σ) : Lang α := {w | ∃ f ∈ M.accept, M.Path M.start w f}
 
+theorem mem_accepts (M : NFA α σ) (w : List α) :
+    w ∈ M.accepts ↔ ∃ f ∈ M.accept, M.Path M.start w f := Iff.rfl
+
 end NFA
+
+/-! ## Constructions on DFAs -/
+
+namespace DFA
+variable {α σ σ₁ σ₂ : Type}
+
+/-- View a DFA as an NFA with exactly one possible move each time. -/
+def toNFA (M : DFA α σ) : NFA α σ where
+  step q x := {M.step q x}
+  start := M.start
+  accept := M.accept
+
+theorem mem_toNFA_step (M : DFA α σ) (p q : σ) (x : α) :
+    q ∈ M.toNFA.step p x ↔ q = M.step p x := Iff.rfl
+theorem toNFA_start (M : DFA α σ) : M.toNFA.start = M.start := rfl
+theorem toNFA_accept (M : DFA α σ) : M.toNFA.accept = M.accept := rfl
+
+/-- Same machine, opposite verdict: accept exactly where `M` rejects. -/
+def compl (M : DFA α σ) : DFA α σ :=
+  { M with accept := M.acceptᶜ }
+
+@[step_simp] theorem compl_step (M : DFA α σ) : M.compl.step = M.step := rfl
+theorem compl_start (M : DFA α σ) : M.compl.start = M.start := rfl
+
+/-- Run `M₁` and `M₂` side by side; accept in the states `acc`. -/
+def prod (M₁ : DFA α σ₁) (M₂ : DFA α σ₂) (acc : Set (σ₁ × σ₂)) : DFA α (σ₁ × σ₂) where
+  step s x := (M₁.step s.1 x, M₂.step s.2 x)
+  start := (M₁.start, M₂.start)
+  accept := acc
+
+@[step_simp] theorem prod_step (M₁ : DFA α σ₁) (M₂ : DFA α σ₂) (acc) (s : σ₁ × σ₂) (x : α) :
+    (M₁.prod M₂ acc).step s x = (M₁.step s.1 x, M₂.step s.2 x) := rfl
+theorem prod_start (M₁ : DFA α σ₁) (M₂ : DFA α σ₂) (acc) :
+    (M₁.prod M₂ acc).start = (M₁.start, M₂.start) := rfl
+
+/-- Accept when both machines accept. -/
+def inter (M₁ : DFA α σ₁) (M₂ : DFA α σ₂) : DFA α (σ₁ × σ₂) :=
+  M₁.prod M₂ {s | s.1 ∈ M₁.accept ∧ s.2 ∈ M₂.accept}
+
+/-- Accept when at least one machine accepts. -/
+def union (M₁ : DFA α σ₁) (M₂ : DFA α σ₂) : DFA α (σ₁ × σ₂) :=
+  M₁.prod M₂ {s | s.1 ∈ M₁.accept ∨ s.2 ∈ M₂.accept}
+
+end DFA
 
 /-! ## Regular languages -/
 

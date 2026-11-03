@@ -1,5 +1,7 @@
 import Game.Levels.Strings
 import Game.Levels.DFA
+import Game.Levels.NFA
+import Game.Levels.Closure
 
 Title "Games of Computation"
 Introduction "
