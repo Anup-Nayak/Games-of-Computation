@@ -7,6 +7,10 @@ namespace Automata
 /-- A language over the alphabet `α` is a set of strings. -/
 abbrev Lang (α : Type) := Set (List α)
 
+/-- `L.concat M`: strings that split as a string of `L` followed by a string of `M`. -/
+def Lang.concat {α : Type} (L M : Lang α) : Lang α :=
+  {w | ∃ u ∈ L, ∃ v ∈ M, w = u ++ v}
+
 /-! ## Deterministic finite automata -/
 
 structure DFA (α σ : Type) where
