@@ -1,3 +1,4 @@
+import Game.Levels.Strings
 import Game.Levels.DFA
 
 Title "Games of Computation"

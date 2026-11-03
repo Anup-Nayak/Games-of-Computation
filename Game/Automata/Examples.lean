@@ -1,4 +1,5 @@
 import Game.Automata.Defs
+import Game.Tactic.StepAttr
 
 namespace Automata
 
@@ -21,6 +22,12 @@ def parityA : DFA AB Parity where
     | .b => q
   start  := .even
   accept := {.even}
+
+@[step_simp] theorem Parity.flip_even : Parity.even.flip = .odd := rfl
+@[step_simp] theorem Parity.flip_odd : Parity.odd.flip = .even := rfl
+@[step_simp] theorem parityA_start : parityA.start = .even := rfl
+@[step_simp] theorem parityA_step_a (q : Parity) : parityA.step q .a = q.flip := rfl
+@[step_simp] theorem parityA_step_b (q : Parity) : parityA.step q .b = q := rfl
 
 instance : DecidablePred (· ∈ parityA.accept) :=
   fun q => inferInstanceAs (Decidable (q = .even))

@@ -8,28 +8,72 @@ msgstr "Project-Id-Version: Game v4.23.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
 
-#: GameServer.RpcHandlers
-msgid "level completed with warnings… 🎭"
+#. §0: `decide`
+#. §1: `∉`
+#. §2: `w ∉ L`
+#. §3: `¬ (w ∈ L)`
+#: Game.Levels.DFA.L03_Decide
+msgid "§0 checked both strings by running the machine. Note that §1 is\n"
+"*not in*: §2 means §3."
 msgstr ""
 
+#. §0: `rfl`
+#: Game.Levels.Strings.L01_Append
+msgid "§0 (short for *reflexivity*) is the simplest proof there is: both sides are\n"
+"literally equal once Lean computes them."
+msgstr ""
+
+#. §0: `step`
 #: Game.Levels.DFA.L01_Run
-msgid "Running a machine"
+msgid "Use §0 to read the first symbol."
 msgstr ""
 
-#: Game
-msgid "Games of Computation"
-msgstr ""
-
-#: GameServer.RpcHandlers
-msgid "level completed! 🎉"
+#. §0: `«{ih}»`
+#: Game.Levels.DFA.L06_OnlyB
+msgid "This is exactly the induction hypothesis §0."
 msgstr ""
 
 #: GameServer.RpcHandlers
 msgid "intermediate goal solved! 🎉"
 msgstr ""
 
-#: Game
-msgid "Finite automata, proved"
+#. §0: `AB`
+#. §1: `AB.a`
+#. §2: `AB.b`
+#. §3: `aba`
+#. §4: `[AB.a, AB.b, AB.a]`
+#. §5: `.a`
+#. §6: `++`
+#: Game.Levels.Strings.L01_Append
+msgid "Every machine in this game reads **strings**. A string is a list of symbols.\n"
+"Our alphabet §0 has two symbols, §1 and §2, and Lean writes a string\n"
+"like §3 as the list §4. When the type is clear, you may\n"
+"shorten a symbol to §5.\n"
+"\n"
+"Gluing two strings together is written §6."
+msgstr ""
+
+#. §0: `even`
+#. §1: `even`
+#. §2: `{even}`
+#: Game.Levels.DFA.L02_Accepts
+msgid "The run ended in §0. Is §1 an accepting state? The accepting set\n"
+"is §2, so this is true by computation."
+msgstr ""
+
+#. §0: `u`
+#. §1: `a`
+#. §2: `u ++ v`
+#. §3: `a`
+#. §4: `v`
+#: Game.Levels.Strings.L03_Rewrite
+msgid "If §0 is the string §1, then §2 is §3 followed by §4."
+msgstr ""
+
+#. §0: `b`
+#. §1: `parityA`
+#: Game.Levels.DFA.L06_OnlyB
+msgid "Reading only §0s leaves §1 where it started."
 msgstr ""
 
 #. §0: `even`
@@ -39,14 +83,129 @@ msgstr ""
 msgid "Starting in §0, after reading §1 the machine is in §2."
 msgstr ""
 
-#. §0: `rfl`
-#. §1: `A = A`
-#. §2: `rfl`
+#. §0: `«{v}» ∈ «{M}»`
+#. §1: `exact ⟨«{u}», «{hu}», «{v}», «{hv}», «{hw}»⟩`
+#: Game.Levels.Strings.L09_ConcatUnion
+msgid "Here §0, so prove the left side, then give\n"
+"the same split: §1."
+msgstr ""
+
+#. §0: `«{w}» ∈ «{L}»`
+#. §1: `«{w}» ∈ «{M}»`
+#. §2: `left`
+#. §3: `right`
+#: Game.Levels.Strings.L04_Subset
+msgid "The goal is an *or*: §0 or §1. Use §2 to say you\n"
+"will prove the left side, or §3 for the right side."
+msgstr ""
+
+#: Game.Levels.Strings.L09_ConcatUnion
+msgid "Concatenation distributes over union."
+msgstr ""
+
+#. §0: `parityA`
+#. §1: `aa`
+#: Game.Levels.DFA.L02_Accepts
+msgid "§0 accepts §1."
+msgstr ""
+
+#. §0: `«{q}»`
+#: Game.Levels.DFA.L06_OnlyB
+msgid "With no symbols at all, the machine stays in §0. This is true by computation."
+msgstr ""
+
+#. §0: `u ++ v`
+#. §1: `u`
+#. §2: `v`
+#: Game.Levels.DFA.L07_Append
+msgid "Reading §0 = reading §1, then reading §2."
+msgstr ""
+
+#. §0: `left`
+#. §1: `A ∨ B`
+#. §2: `A`
+#. §3: `w ∈ L ∪ M`
+#. §4: `w ∈ L`
 #: Game.Doc.Tactics
-msgid "§0 closes a goal of the form §1, where both sides are equal\n"
-"*by definition*. Lean is allowed to unfold definitions and compute while\n"
-"checking this, so §2 can prove that a machine ends in a particular state\n"
-"after reading a short, concrete string."
+#: Game.Doc.Tactics
+msgid "§0 proves a goal §1 by proving §2. For languages: §3 by §4."
+msgstr ""
+
+#. §0: `L ∪ M`
+#. §1: `M ∪ L`
+#: Game.Levels.Strings.L07_Ext
+msgid "§0 and §1 are the same language."
+msgstr ""
+
+#: Game.Levels.Strings.L09_ConcatUnion
+msgid "**World complete.** You can now reason about strings and languages: membership,\n"
+"union, intersection, equality and concatenation.\n"
+"\n"
+"Next: machines that *recognise* languages."
+msgstr ""
+
+#. §0: `b`
+#. §1: `parityA`
+#. §2: `b`
+#. §3: `List.replicate n .b`
+#. §4: `n`
+#. §5: `b`
+#. §6: `n`
+#. §7: `induction' n with n ih`
+#. §8: `n = 0`
+#. §9: `n`
+#. §10: `ih`
+#. §11: `n + 1`
+#. §12: `List.replicate_succ`
+#. §13: `List.replicate (n + 1) a = a :: List.replicate n a`
+#: Game.Levels.DFA.L06_OnlyB
+msgid "Reading §0 never changes the state of §1, so reading §2 any number of\n"
+"times shouldn't either. §3 is the string of §4 copies of §5.\n"
+"\n"
+"To prove something for every §6, use **induction**. §7\n"
+"leaves two goals:\n"
+"\n"
+"* first, prove it for §8;\n"
+"* then, assuming it holds for §9 (the hypothesis §10), prove it for §11.\n"
+"\n"
+"The theorem §12 says §13."
+msgstr ""
+
+#. §0: `exact h`
+#. §1: `h`
+#. §2: `h`
+#. §3: `h`
+#. §4: `h₂ h₁`
+#. §5: `⟨u, hu, v, hv, rfl⟩`
+#: Game.Doc.Tactics
+msgid "§0 closes the goal with §1, when §2 proves exactly the goal\n"
+"(up to unfolding definitions). §3 can be an assumption or any expression,\n"
+"like §4 or §5."
+msgstr ""
+
+#. §0: `«{h}»`
+#. §1: `«{w}»`
+#. §2: `constructor`
+#: Game.Levels.DFA.L11_Language
+msgid "Both sides are now true: the start state is accepting, and §0 says\n"
+"§1 is in the language. Prove the two directions with §2."
+msgstr ""
+
+#. §0: `intro h`
+#: Game.Levels.Strings.L07_Ext
+msgid "Introduce the assumption with §0."
+msgstr ""
+
+#: Game.Levels.DFA.L11_Language
+msgid "The language of parityA"
+msgstr ""
+
+#: GameServer.RpcHandlers
+msgid "level completed with warnings… 🎭"
+msgstr ""
+
+#: Game.Levels.DFA.L01_Run
+msgid "Running a machine"
 msgstr ""
 
 #. §0: `parityA`
@@ -54,17 +213,168 @@ msgstr ""
 #. §2: `odd`
 #. §3: `a`
 #. §4: `b`
+#. §5: `parityA.evalFrom q w`
+#. §6: `w`
+#. §7: `q`
+#. §8: `step`
 #: Game.Levels.DFA.L01_Run
-msgid "A deterministic finite automaton reads a string one symbol at a time,\n"
-"moving from state to state.\n"
+msgid "A **deterministic finite automaton** (DFA) has finitely many states. It reads a\n"
+"string one symbol at a time, and each symbol moves it to a new state.\n"
 "\n"
 "Our first machine, §0, has two states: §1 and §2.\n"
-"Reading §3 swaps them; reading §4 changes nothing."
+"Reading §3 swaps them; reading §4 changes nothing.\n"
+"\n"
+"§5 is the state the machine ends in after reading §6,\n"
+"starting from state §7.\n"
+"\n"
+"The tactic §8 makes the machine read one symbol, so you can watch the run."
 msgstr ""
 
-#: Game
-msgid "Prove the classic results about finite automata and regular languages,\n"
-"one level at a time."
+#: Game.Levels.DFA
+msgid "A **deterministic finite automaton** is the simplest kind of computer: finitely\n"
+"many states, no memory beyond the current state, and one fixed move for each\n"
+"symbol it reads.\n"
+"\n"
+"In this world you'll run machines, check what they accept, refute false claims,\n"
+"and finally prove *exactly* which language a machine recognises."
+msgstr ""
+
+#. §0: `α`
+#. §1: `σ`
+#. §2: `M.step q x`
+#. §3: `x`
+#. §4: `q`
+#. §5: `M.start`
+#. §6: `M.accept`
+#: Game.Doc.Definitions
+msgid "A deterministic finite automaton over alphabet §0 with states §1:\n"
+"\n"
+"* §2: the next state after reading §3 in state §4\n"
+"* §5: the start state\n"
+"* §6: the set of accepting states"
+msgstr ""
+
+#. §0: `«{h}»`
+#. §1: `obtain h | h := «{h}»`
+#: Game.Levels.Strings.L07_Ext
+msgid "§0 is an *or*. Split into two cases with §1."
+msgstr ""
+
+#. §0: `exfalso`
+#. §1: `False`
+#: Game.Doc.Tactics
+msgid "§0 changes the goal into §1. Use it when your assumptions\n"
+"contradict each other: from a contradiction, anything follows."
+msgstr ""
+
+#. §0: `«{hw}»`
+#. §1: `«{w}»`
+#. §2: `obtain ⟨h₁, h₂⟩ := «{hw}»`
+#: Game.Levels.Strings.L06_Obtain
+msgid "§0 says §1 is in both languages. Take it apart with\n"
+"§2."
+msgstr ""
+
+#. §0: `b`
+#: Game.Levels.DFA.L06_OnlyB
+msgid "Now read the first §0."
+msgstr ""
+
+#. §0: `parityA`
+#. §1: `q`
+#. §2: `a`
+#. §3: `q.flip`
+#: Game.Levels.DFA.L10_Parity
+msgid "§0 ends in §1 after an even number of §2s, and in §3 otherwise."
+msgstr ""
+
+#. §0: `parityA`
+#. §1: `a`
+#. §2: `w.count .a`
+#. §3: `a`
+#. §4: `w`
+#. §5: `List.count_cons_self : (a :: l).count a = l.count a + 1`
+#. §6: `List.count_cons_of_ne : b ≠ a → (b :: l).count a = l.count a`
+#. §7: `generalizing`
+#. §8: `cases`
+#. §9: `step`
+#. §10: `ite_flip_succ`
+#: Game.Levels.DFA.L10_Parity
+msgid "Time to describe §0 on **every** string and **every** starting state:\n"
+"it ends where it started if the string has an even number of §1s, and in the\n"
+"other state otherwise.\n"
+"\n"
+"§2 is the number of §3s in §4. Two theorems describe it:\n"
+"\n"
+"* §5\n"
+"* §6\n"
+"\n"
+"You'll need induction with §7, §8 on the first symbol, §9,\n"
+"and the result §10 from the last level."
+msgstr ""
+
+#. §0: `a`
+#: Game.Levels.DFA.L09_IfThenElse
+msgid "One more §0 swaps the outcome."
+msgstr ""
+
+#: Game.Levels.DFA.L05_FlipFlip
+msgid "Each case is now a concrete computation."
+msgstr ""
+
+#. §0: `cases q`
+#: Game.Levels.DFA.L05_FlipFlip
+msgid "Split on the state with §0."
+msgstr ""
+
+#. §0: `omega`
+#. §1: `+`
+#. §2: `-`
+#. §3: `%`
+#. §4: `/`
+#. §5: `<`
+#. §6: `≤`
+#. §7: `=`
+#. §8: `≠`
+#: Game.Doc.Tactics
+msgid "§0 proves arithmetic facts about natural numbers and integers: §1, §2,\n"
+"numerals, multiplication by constants, §3 and §4 by constants, §5, §6, §7, §8.\n"
+"It uses the arithmetic assumptions in your context."
+msgstr ""
+
+#: Game.Levels.Strings.L06_Obtain
+msgid "Taking apart an *and*"
+msgstr ""
+
+#. §0: `{a, b}`
+#. §1: `AB.a`
+#. §2: `AB.b`
+#. §3: `.a`
+#. §4: `.b`
+#: Game.Doc.Definitions
+msgid "The alphabet §0, with symbols §1 and §2 (or §3 and §4 when the type is clear)."
+msgstr ""
+
+#. §0: `L.concat M`
+#. §1: `L`
+#. §2: `M`
+#. §3: `w ∈ L.concat M`
+#. §4: `∃ u ∈ L, ∃ v ∈ M, w = u ++ v`
+#. §5: `∃`
+#. §6: `⟨u, proof u ∈ L, v, proof v ∈ M, proof w = u ++ v⟩`
+#. §7: `{[AB.a]}`
+#. §8: `a`
+#: Game.Levels.Strings.L08_Concat
+msgid "The **concatenation** §0 contains every string that splits as a string\n"
+"of §1 followed by a string of §2:\n"
+"\n"
+"§3 means §4.\n"
+"\n"
+"To prove a statement starting with §5, give the witness together with proofs\n"
+"of the rest, bundled with angle brackets. Here the bundle is\n"
+"§6.\n"
+"\n"
+"The language §7 contains exactly one string, §8."
 msgstr ""
 
 #. §0: `parityA`
@@ -75,40 +385,887 @@ msgstr ""
 #. §5: `even`
 #. §6: `even`
 #: Game.Doc.Definitions
-msgid "§0 has two states, §1 and §2. Reading §3 swaps them,\n"
-"reading §4 leaves the state alone. It starts in §5 and accepts in §6."
+msgid "§0 has states §1 and §2. Reading §3 swaps them, reading §4\n"
+"changes nothing. It starts in §5 and accepts in §6."
 msgstr ""
 
-#: Game.Levels.DFA
-msgid "Deterministic Automata"
+#. §0: `ite_flip_succ`
+#: Game.Levels.DFA.L10_Parity
+msgid "This is exactly §0."
+msgstr ""
+
+#. §0: `cases x`
+#. §1: `x`
+#. §2: `Parity`
+#. §3: `AB`
+#: Game.Doc.Tactics
+msgid "§0 splits into one goal per possible shape of §1: one per state of a\n"
+"finite type like §2, one per symbol of §3, or one per side of an *or*."
+msgstr ""
+
+#. §0: `rw [«{h}»]`
+#. §1: `«{u}»`
+#. §2: `[AB.a]`
+#: Game.Levels.Strings.L03_Rewrite
+msgid "Use §0 to replace §1 by §2."
+msgstr ""
+
+#. §0: `«{ih}»`
+#. §1: `b`
+#. §2: `List.count_cons_of_ne`
+#. §3: `AB.b ≠ AB.a`
+#. §4: `decide`
+#. §5: `rw [«{ih}», List.count_cons_of_ne (by decide)]`
+#: Game.Levels.DFA.L10_Parity
+msgid "Rewrite the run with §0. On the right, the §1 doesn't change\n"
+"the count: §2 needs a proof of §3, which\n"
+"§4 provides. Try §5."
+msgstr ""
+
+#. §0: `constructor`
+#. §1: `A ∧ B`
+#. §2: `w ∈ L ∩ M`
+#. §3: `A`
+#. §4: `B`
+#. §5: `A ↔ B`
+#. §6: `A → B`
+#. §7: `B → A`
+#: Game.Doc.Tactics
+msgid "§0 splits a goal into its parts:\n"
+"\n"
+"* §1 (and §2) into §3 and §4;\n"
+"* §5 into §6 and §7."
+msgstr ""
+
+#. §0: `step`
+#. §1: `M.evalFrom q (x :: xs)`
+#. §2: `M.evalFrom q' xs`
+#. §3: `q'`
+#. §4: `M.evalFrom q []`
+#. §5: `q`
+#. §6: `step`
+#. §7: `[AB.a, AB.b]`
+#. §8: `x :: xs`
+#: Game.Doc.Tactics
+msgid "§0 makes a machine read one symbol. It turns §1 into\n"
+"§2, working out the new state §3 when it can, and turns\n"
+"§4 into §5.\n"
+"\n"
+"§6 only sees a first symbol when the string visibly starts with one, like\n"
+"§7 or §8. Rewrite first if it doesn't."
+msgstr ""
+
+#: Game.Levels.DFA.L10_Parity
+msgid "Where the machine ends up"
+msgstr ""
+
+#. §0: `step`
+#: Game.Levels.DFA.L07_Append
+msgid "Read the first symbol on both sides: §0 twice."
+msgstr ""
+
+#. §0: `induction' n with n ih`
+#. §1: `n`
+#. §2: `0`
+#. §3: `n + 1`
+#. §4: `n`
+#. §5: `ih`
+#. §6: `induction' w with x xs ih`
+#. §7: `x :: xs`
+#. §8: `xs`
+#. §9: `generalizing q`
+#. §10: `ih`
+#. §11: `q`
+#. §12: `q`
+#: Game.Doc.Tactics
+msgid "§0 proves a statement for every natural number §1: first\n"
+"for §2, then for §3 assuming it for §4 (the hypothesis §5).\n"
+"\n"
+"For strings, §6 gives a goal for the empty string and\n"
+"one for §7, assuming it for §8.\n"
+"\n"
+"Add §9 at the end to make §10 hold for every value of §11. You\n"
+"need this whenever §12 changes from one step to the next, like the state of a\n"
+"machine."
+msgstr ""
+
+#. §0: `«{h}»`
+#: Game.Levels.Strings.L09_ConcatUnion
+msgid "Now the *or* comes first. Split §0 into its two cases."
+msgstr ""
+
+#. §0: `[] ++ v`
+#. §1: `v`
+#. §2: `[]`
+#: Game.Levels.DFA.L07_Append
+msgid "§0 is just §1, and reading §2 changes nothing. This is true by computation."
+msgstr ""
+
+#: Game.Levels.DFA.L04_Counterexample
+msgid "To refute a claim about all strings, one counterexample is enough."
+msgstr ""
+
+#. §0: `step`
+#: Game.Levels.DFA.L01_Run
+msgid "Nothing is left to read. One last §0 finishes the run."
+msgstr ""
+
+#: Game.Levels.Strings.L05_Inter
+msgid "When there are several goals, Lean works on the first one, and you can see the\n"
+"others below it."
+msgstr ""
+
+#. §0: `intro w hw`
+#: Game.Levels.Strings.L04_Subset
+#: Game.Levels.Strings.L07_Ext
+msgid "Start with §0."
+msgstr ""
+
+#: Game.Levels.Strings.L08_Concat
+msgid "The angle brackets build any *and* or *exists* at once, as long as you supply\n"
+"all the pieces in order."
+msgstr ""
+
+#: Game.Levels.DFA.L05_FlipFlip
+msgid "Flipping twice gives back the state you started from."
+msgstr ""
+
+#. §0: `«{h}»`
+#. §1: `{u | u.length = 2}`
+#. §2: `exact «{h}»`
+#: Game.Levels.Strings.L02_Membership
+msgid "Look at the assumption §0. It says exactly what the goal asks for,\n"
+"because being in §1 just means having length 2.\n"
+"Use §2."
+msgstr ""
+
+#. §0: `w ∈ M.accepts ↔ M.evalFrom M.start w ∈ M.accept`
+#: Game.Doc.Theorems
+#: Game.Doc.Theorems
+#: Game.Doc.Theorems
+#: Game.Doc.Theorems
+#: Game.Doc.Theorems
+#: Game.Doc.Theorems
+#: Game.Doc.Theorems
+#: Game.Levels.Strings.L07_Ext
+#: Game.Levels.Strings.L09_ConcatUnion
+#: Game.Levels.DFA.L05_FlipFlip
+#: Game.Levels.DFA.L06_OnlyB
+#: Game.Levels.DFA.L07_Append
+#: Game.Levels.DFA.L09_IfThenElse
+#: Game.Levels.DFA.L10_Parity
+#: Game.Levels.DFA.L11_Language
+msgid "§0"
+msgstr ""
+
+#. §0: `«{ih}»`
+#. §1: `«{M}».step «{q}» «{x}»`
+#. §2: `exact «{ih}» («{M}».step «{q}» «{x}»)`
+#: Game.Levels.DFA.L07_Append
+msgid "§0 works for any starting state. Use it with §1:\n"
+"§2."
 msgstr ""
 
 #. §0: `a`
-#. §1: `even`
-#. §2: `odd`
-#. §3: `b`
-#. §4: `rfl`
-#: Game.Levels.DFA.L01_Run
-msgid "Both sides compute to the same state: §0 takes §1 to §2,\n"
-"then §3 leaves it there. When two sides are equal just by computing,\n"
-"§4 proves it."
+#. §1: `step`
+#: Game.Levels.DFA.L10_Parity
+#: Game.Levels.DFA.L10_Parity
+msgid "First symbol §0: read it with §1."
 msgstr ""
 
-#: Game
-msgid "A game on finite automata and regular languages, built with lean4game."
+#. §0: `parityA`
+#. §1: `a`
+#. §2: `ext`
+#. §3: `DFA.mem_accepts`
+#. §4: `parityA_evalFrom`
+#. §5: `by_cases`
+#. §6: `if_pos`
+#. §7: `if_neg`
+#. §8: `have h₂ : ... ∉ ... := by decide`
+#. §9: `exfalso`
+#. §10: `False`
+#. §11: `exfalso`
+#. §12: `False`
+#: Game.Levels.DFA.L11_Language
+msgid "**Final level of this world.**\n"
+"\n"
+"§0 accepts exactly the strings with an even number of §1s.\n"
+"\n"
+"Everything you need is already in your inventory: §2, §3,\n"
+"§4, §5, §6 and §7. In one case you will need\n"
+"to show a state is *not* accepting: remember the pattern from the\n"
+"counterexample level, §8.\n"
+"\n"
+"One new tactic: §9 changes any goal into §10. From a contradiction\n"
+"you can prove anything, so when your assumptions contradict each other, use\n"
+"§11 and then derive §12."
 msgstr ""
 
-#: Game.Levels.DFA
-msgid "In this world you will run machines, then prove what they do on every input."
+#. §0: `rw [h]`
+#. §1: `h : X = Y`
+#. §2: `h : X ↔ Y`
+#. §3: `X`
+#. §4: `Y`
+#. §5: `rw [h₁, h₂]`
+#. §6: `rw [← h]`
+#. §7: `rw [h] at h'`
+#. §8: `h'`
+#. §9: `rw`
+#: Game.Doc.Tactics
+msgid "§0, where §1 (or §2), replaces §3 by §4 in the goal.\n"
+"\n"
+"* §5 rewrites with several facts in turn.\n"
+"* §6 rewrites right-to-left.\n"
+"* §7 rewrites in the assumption §8 instead of the goal.\n"
+"\n"
+"After rewriting, §9 tries to close the goal if both sides became identical."
 msgstr ""
 
-#: Game.Levels.DFA.L01_Run
-msgid "Lean ran the machine for you. Soon you'll prove things about runs of\n"
-"*every* length, where computing is no longer enough."
+#. §0: `by_cases h : «{n}» % 2 = 0`
+#: Game.Levels.DFA.L09_IfThenElse
+msgid "Split on the condition on the left: §0."
+msgstr ""
+
+#. §0: `u = [.a]`
+#. §1: `u`
+#. §2: `[.a]`
+#. §3: `rw [h]`
+#. §4: `h`
+#: Game.Levels.Strings.L03_Rewrite
+msgid "When you know §0, you can replace §1 by §2 anywhere in the goal.\n"
+"The tactic §3 does this: it rewrites the left side of §4 into the right side."
 msgstr ""
 
 #: Game
 msgid "Learn DFAs, NFAs, closure properties and non-regularity by proving them in Lean."
+msgstr ""
+
+#. §0: `«{h₂}»`
+#. §1: `«{h₁}»`
+#. §2: `«{h₁}»`
+#. §3: `False`
+#. §4: `¬ P`
+#. §5: `exact «{h₂}» «{h₁}»`
+#: Game.Levels.DFA.L04_Counterexample
+msgid "§0 says *not* §1, that is, §2 leads to §3. A proof of\n"
+"§4 works like a function: §5."
+msgstr ""
+
+#. §0: `Parity.even`
+#. §1: `Parity.odd`
+#: Game.Doc.Definitions
+msgid "The two states §0 and §1."
+msgstr ""
+
+#: Game.Levels.Strings
+msgid "Before building machines, we need what they read and what they recognise:\n"
+"**strings** and **languages**.\n"
+"\n"
+"This world also teaches you the basics of proving things in Lean. Every level is\n"
+"a statement; you prove it by typing *tactics*, one per line. The goal you still\n"
+"have to prove is always shown in the middle of the screen."
+msgstr ""
+
+#. §0: `parityA`
+#. §1: `abbab`
+#. §2: `ba`
+#: Game.Levels.DFA.L03_Decide
+msgid "§0 accepts §1 but not §2."
+msgstr ""
+
+#. §0: `if`
+#. §1: `rw [if_pos «{h}»]`
+#. §2: `(«{n}» + 1) % 2 = 0`
+#. §3: `rw [if_pos «{h}», if_neg (by omega)]`
+#: Game.Levels.DFA.L09_IfThenElse
+msgid "The left §0 takes its first branch: §1.\n"
+"On the right, §2 is false. You can prove that inside the\n"
+"rewrite: §3."
+msgstr ""
+
+#. §0: `L`
+#. §1: `M`
+#. §2: `L ∩ M`
+#: Game.Levels.Strings.L05_Inter
+msgid "A string in both §0 and §1 is in §2."
+msgstr ""
+
+#: Game
+msgid "Games of Computation"
+msgstr ""
+
+#. §0: `omega`
+#: Game.Levels.DFA.L08_Omega
+msgid "§0 saves you from arithmetic you would otherwise do by hand."
+msgstr ""
+
+#. §0: `rfl`
+#. §1: `X = Y`
+#. §2: `X`
+#. §3: `Y`
+#: Game.Levels.Strings.L01_Append
+msgid "Lean can glue these two concrete strings itself and see that both sides\n"
+"are the same list. The tactic §0 proves a goal §1 when §2 and §3\n"
+"compute to the same thing."
+msgstr ""
+
+#. §0: `have`
+#. §1: `have h := e`
+#. §2: `e`
+#. §3: `have h₁ := h [AB.a]`
+#. §4: `have h : P := by tac`
+#. §5: `P`
+#: Game.Doc.Tactics
+msgid "§0 adds a new fact to your assumptions:\n"
+"\n"
+"* §1 names the expression §2, for example §3;\n"
+"* §4 proves §5 with tactics first."
+msgstr ""
+
+#. §0: `(«{x}» :: «{xs}») ++ «{v}»`
+#. §1: `List.cons_append`
+#. §2: `«{x}» :: («{xs}» ++ «{v}»)`
+#: Game.Levels.DFA.L07_Append
+msgid "§0 doesn't show its first symbol yet. The theorem\n"
+"§1 rewrites it to §2."
+msgstr ""
+
+#. §0: `by_cases h : «{w}».count AB.a % 2 = 0`
+#: Game.Levels.DFA.L11_Language
+msgid "Everything depends on whether the count is even.\n"
+"§0."
+msgstr ""
+
+#: Game.Levels.DFA.L09_IfThenElse
+msgid "If-then-else"
+msgstr ""
+
+#. §0: `parityA`
+#: Game.Levels.DFA.L04_Counterexample
+msgid "§0 does not accept every string."
+msgstr ""
+
+#. §0: `Parity.flip_flip`
+#: Game.Levels.DFA.L09_IfThenElse
+msgid "You proved §0 earlier."
+msgstr ""
+
+#. §0: `«{hv}»`
+#. §1: `«{v}»`
+#. §2: `obtain hv | hv := «{hv}»`
+#: Game.Levels.Strings.L09_ConcatUnion
+msgid "§0 is an *or*. Which language §1 is in decides which side of\n"
+"the goal you prove. Split it with §2."
+msgstr ""
+
+#. §0: `Lang AB`
+#. §1: `{u | u.length = 2}`
+#. §2: `w`
+#. §3: `w.length = 2`
+#: Game.Levels.Strings.L02_Membership
+msgid "A **language** is a set of strings. §0 is the type of languages over our\n"
+"alphabet.\n"
+"\n"
+"The most common way to describe a language is by a property. For example\n"
+"§1 is the language of strings of length 2. A string §2 is\n"
+"in that language exactly when §3: membership *is* the property."
+msgstr ""
+
+#. §0: `intro x`
+#. §1: `∀ x, P x`
+#. §2: `P x`
+#. §3: `x`
+#. §4: `A → B`
+#. §5: `B`
+#. §6: `A`
+#. §7: `L ⊆ M`
+#. §8: `w`
+#. §9: `hw : w ∈ L`
+#. §10: `intro w hw`
+#. §11: `¬ P`
+#. §12: `False`
+#. §13: `P`
+#: Game.Doc.Tactics
+msgid "§0 introduces what the goal assumes:\n"
+"\n"
+"* a goal §1 becomes §2 for a new §3;\n"
+"* a goal §4 becomes §5 with a new assumption of §6;\n"
+"* a goal §7 takes a string §8 and §9: use §10;\n"
+"* a goal §11 becomes §12 with an assumption of §13."
+msgstr ""
+
+#: Game.Levels.Strings.L03_Rewrite
+msgid "Rewriting"
+msgstr ""
+
+#. §0: `ext w`
+#. §1: `L = M`
+#. §2: `w ∈ L ↔ w ∈ M`
+#: Game.Doc.Tactics
+msgid "§0 proves that two languages are equal by showing they contain the same\n"
+"strings: the goal §1 becomes §2."
+msgstr ""
+
+#. §0: `«{u}»`
+#. §1: `induction' «{u}» with x xs ih generalizing «{q}»`
+#: Game.Levels.DFA.L07_Append
+msgid "Induction on §0, letting the starting state vary:\n"
+"§1."
+msgstr ""
+
+#. §0: `Parity.flip`
+#. §1: `q`
+#. §2: `cases q`
+#. §3: `even`
+#. §4: `odd`
+#: Game.Levels.DFA.L05_FlipFlip
+msgid "§0 swaps the two states. Flipping twice should change nothing,\n"
+"for *every* state §1.\n"
+"\n"
+"There are only two states, so check them one by one: §2 splits the\n"
+"goal into one case for §3 and one for §4."
+msgstr ""
+
+#. §0: `u ++ v`
+#. §1: `u`
+#. §2: `v`
+#. §3: `M`
+#. §4: `u`
+#. §5: `x`
+#. §6: `q`
+#. §7: `M.step q x`
+#. §8: `q`
+#. §9: `induction' u with x xs ih generalizing q`
+#: Game.Levels.DFA.L07_Append
+msgid "Reading §0 is the same as reading §1, then reading §2 from wherever you\n"
+"ended up. This holds for *every* DFA §3.\n"
+"\n"
+"Induction on §4 is the natural plan. But be careful: when the machine reads\n"
+"the first symbol §5, its state changes from §6 to §7. So the\n"
+"induction hypothesis must work for *any* starting state, not just for §8.\n"
+"\n"
+"§9 makes the hypothesis hold for every\n"
+"starting state."
+msgstr ""
+
+#. §0: `decide`
+#: Game.Levels.DFA.L03_Decide
+msgid "Both parts are about concrete strings. Use §0."
+msgstr ""
+
+#. §0: `rfl`
+#. §1: `X = Y`
+#. §2: `X ↔ X`
+#: Game.Doc.Tactics
+msgid "§0 proves a goal §1 when both sides are equal *by computation*: Lean may\n"
+"unfold definitions and evaluate while checking. It also proves §2."
+msgstr ""
+
+#. §0: `«{h'}»`
+#. §1: `«{h}»`
+#: Game.Levels.DFA.L11_Language
+msgid "§0 says the count is even, and §1 says it isn't."
+msgstr ""
+
+#. §0: `«{w}» ∈ «{L}»`
+#: Game.Levels.Strings.L05_Inter
+msgid "First part: §0."
+msgstr ""
+
+#. §0: `ext w`
+#. §1: `constructor`
+#: Game.Levels.Strings.L09_ConcatUnion
+msgid "As always for an equality of languages, start with §0 and §1."
+msgstr ""
+
+#: Game.Levels.DFA.L11_Language
+msgid "Is the start state accepting? That's true by computation."
+msgstr ""
+
+#: Game.Levels.Strings.L05_Inter
+msgid "Intersection"
+msgstr ""
+
+#. §0: `intro`
+#. §1: `left`
+#. §2: `right`
+#: Game.Levels.Strings.L04_Subset
+msgid "You now know how to prove a subset (§0) and an *or* (§1 or §2)."
+msgstr ""
+
+#. §0: `constructor`
+#: Game.Levels.DFA.L11_Language
+msgid "Now both sides are false. Prove the two directions with §0."
+msgstr ""
+
+#: Game.Levels.DFA.L02_Accepts
+msgid "Accepting a string"
+msgstr ""
+
+#. §0: `L ∪ M`
+#. §1: `L`
+#. §2: `M`
+#. §3: `L ⊆ M`
+#. §4: `L`
+#. §5: `M`
+#. §6: `L ⊆ M`
+#. §7: `w`
+#. §8: `w ∈ L`
+#. §9: `w ∈ M`
+#. §10: `intro w hw`
+#: Game.Levels.Strings.L04_Subset
+msgid "Languages can be combined like sets. §0 contains the strings in §1 *or* in §2.\n"
+"§3 means every string of §4 is also in §5.\n"
+"\n"
+"To prove §6, take an arbitrary string §7 together with the fact §8,\n"
+"and show §9. The tactic §10 does exactly this: it introduces\n"
+"the string and the assumption."
+msgstr ""
+
+#. §0: `intro w hw`
+#: Game.Levels.Strings.L06_Obtain
+msgid "Start the same way as for a subset: §0."
+msgstr ""
+
+#: Game.Levels.Strings.L04_Subset
+msgid "Union"
+msgstr ""
+
+#. §0: `parityA`
+#. §1: `a`
+#: Game.Levels.DFA.L11_Language
+msgid "§0 accepts exactly the strings with an even number of §1s."
+msgstr ""
+
+#. §0: `«{w}»`
+#: Game.Levels.Strings.L07_Ext
+msgid "In this case §0 is in the left language, which is\n"
+"on the right of the goal."
+msgstr ""
+
+#: Game.Levels.Strings
+msgid "Strings and Languages"
+msgstr ""
+
+#: Game.Levels.Strings.L01_Append
+msgid "Strings are lists"
+msgstr ""
+
+#. §0: `«{w}»`
+#. §1: `a`
+#. §2: `«{q}»`
+#. §3: `induction' «{w}» with x xs ih generalizing «{q}»`
+#: Game.Levels.DFA.L10_Parity
+msgid "Induction on §0. The state changes with every §1, so generalize §2:\n"
+"§3."
+msgstr ""
+
+#. §0: `a :: v`
+#. §1: `a`
+#. §2: `v`
+#: Game.Levels.Strings.L03_Rewrite
+msgid "Here §0 means the string that starts with §1 and continues with §2.\n"
+"Every non-empty string has this shape, which is how machines will read strings:\n"
+"one symbol at a time from the front."
+msgstr ""
+
+#: Game.Levels.Strings.L06_Obtain
+msgid "Now build the *and* in the goal, in the other order."
+msgstr ""
+
+#. §0: `rw [if_neg «{h}»]`
+#: Game.Levels.DFA.L11_Language
+msgid "The count is odd, so the run ends in the flipped start state: §0."
+msgstr ""
+
+#. §0: `ext w`
+#: Game.Levels.DFA.L11_Language
+msgid "An equality of languages: start with §0."
+msgstr ""
+
+#. §0: `q.flip`
+#. §1: `even.flip = odd`
+#. §2: `odd.flip = even`
+#: Game.Doc.Definitions
+msgid "§0 swaps the two states: §1, §2."
+msgstr ""
+
+#: Game.Levels.Strings.L02_Membership
+msgid "Languages are sets"
+msgstr ""
+
+#: Game.Levels.Strings.L09_ConcatUnion
+msgid "Concatenation distributes over union"
+msgstr ""
+
+#. §0: `step`
+#. §1: `List.replicate («{n}» + 1) AB.b`
+#. §2: `rw [List.replicate_succ]`
+#: Game.Levels.DFA.L06_OnlyB
+msgid "§0 can't see a first symbol in §1 yet.\n"
+"Make it visible with §2."
+msgstr ""
+
+#. §0: `have h₂ : [AB.a] ∉ parityA.accepts := by decide`
+#: Game.Levels.DFA.L04_Counterexample
+msgid "Now prove that the string is *not* accepted. It is a concrete\n"
+"question: §0."
+msgstr ""
+
+#. §0: `w`
+#. §1: `u ++ v`
+#. §2: `v ∈ M ∪ N`
+#. §3: `v ∈ M`
+#. §4: `v ∈ N`
+#. §5: `L.concat (M ∪ N)`
+#. §6: `L.concat M`
+#. §7: `L.concat N`
+#. §8: `ext`
+#. §9: `constructor`
+#. §10: `intro`
+#. §11: `obtain`
+#. §12: `left`
+#. §13: `right`
+#. §14: `obtain`
+#. §15: `∃`
+#. §16: `obtain ⟨u, hu, v, hv, hw⟩ := h`
+#: Game.Levels.Strings.L09_ConcatUnion
+msgid "**Final level of this world.**\n"
+"\n"
+"Splitting §0 as §1 with §2 means §3 or §4. So the\n"
+"strings of §5 are exactly those of §6 together with\n"
+"those of §7.\n"
+"\n"
+"You have every tool you need: §8, §9, §10, §11, §12,\n"
+"§13, and the angle brackets. Note that §14 can take apart an §15 too:\n"
+"§16."
+msgstr ""
+
+#. §0: `generalizing`
+#: Game.Levels.DFA.L07_Append
+msgid "§0 is needed whenever the thing you induct over changes another\n"
+"variable along the way. For machines, it almost always does: the state changes\n"
+"with every symbol."
+msgstr ""
+
+#: Game.Levels.Strings.L06_Obtain
+msgid "Intersection does not depend on the order."
+msgstr ""
+
+#: Game
+msgid "Finite automata, proved"
+msgstr ""
+
+#. §0: `«{h'}»`
+#. §1: `have h₂ : parityA.start.flip ∉ parityA.accept := by decide`
+#: Game.Levels.DFA.L11_Language
+msgid "§0 claims the flipped start state is accepting. That's false, and\n"
+"a concrete fact: §1."
+msgstr ""
+
+#. §0: `parityA`
+#. §1: `a`
+#. §2: `n`
+#. §3: `n + 1`
+#. §4: `omega`
+#. §5: `+`
+#. §6: `-`
+#. §7: `%`
+#. §8: `=`
+#. §9: `≠`
+#: Game.Levels.DFA.L08_Omega
+msgid "§0 counts §1s modulo 2. To reason about it we need small facts about\n"
+"remainders, such as: if §2 is even then §3 is not.\n"
+"\n"
+"§4 proves goals built from §5, §6, numbers, §7 by a constant,\n"
+"comparisons and §8/§9 over the natural numbers, using your assumptions."
+msgstr ""
+
+#. §0: `cases «{x}»`
+#: Game.Levels.DFA.L10_Parity
+msgid "What happens depends on the first symbol. Split with §0."
+msgstr ""
+
+#. §0: `omega`
+#: Game.Levels.DFA.L08_Omega
+msgid "This is a job for §0."
+msgstr ""
+
+#: Game.Levels.Strings.L08_Concat
+msgid "Concatenation"
+msgstr ""
+
+#. §0: `rw [DFA.mem_accepts]`
+#: Game.Levels.DFA.L02_Accepts
+msgid "Unfold what it means to accept with §0."
+msgstr ""
+
+#. §0: `obtain`
+#. §1: `obtain ⟨h₁, h₂⟩ := h`
+#. §2: `h : A ∧ B`
+#. §3: `obtain ⟨x, hx⟩ := h`
+#. §4: `h : ∃ x, P x`
+#. §5: `obtain ⟨u, hu, v, hv, hw⟩ := h`
+#. §6: `obtain h | h := h`
+#. §7: `h : A ∨ B`
+#: Game.Doc.Tactics
+msgid "§0 takes an assumption apart:\n"
+"\n"
+"* §1 for §2;\n"
+"* §3 for §4, and longer patterns like\n"
+"  §5 for nested ones;\n"
+"* §6 for §7, giving two cases."
+msgstr ""
+
+#: Game.Levels.Strings.L04_Subset
+msgid "Now the goal is one of your assumptions."
+msgstr ""
+
+#. §0: `induction' «{n}» with n ih`
+#: Game.Levels.DFA.L06_OnlyB
+msgid "Use §0."
+msgstr ""
+
+#. §0: `cases`
+#: Game.Levels.DFA.L05_FlipFlip
+msgid "§0 works on anything with finitely many shapes: states, symbols, *or*s."
+msgstr ""
+
+#: Game.Levels.DFA.L06_OnlyB
+msgid "Induction is how you prove things about strings of every length."
+msgstr ""
+
+#. §0: `rw [DFA.mem_accepts, parityA_evalFrom]`
+#: Game.Levels.DFA.L11_Language
+msgid "Unfold acceptance and use what you know about runs:\n"
+"§0."
+msgstr ""
+
+#. §0: `Lang α`
+#. §1: `α`
+#. §2: `w ∈ L`
+#. §3: `w`
+#. §4: `L`
+#. §5: `L ∪ M`
+#. §6: `L ∩ M`
+#. §7: `L ⊆ M`
+#. §8: `L`
+#. §9: `M`
+#. §10: `{w | P w}`
+#. §11: `P`
+#: Game.Doc.Definitions
+msgid "§0 is the type of languages over the alphabet §1: sets of strings.\n"
+"\n"
+"* §2: §3 is in §4\n"
+"* §5, §6: union, intersection\n"
+"* §7: every string of §8 is in §9\n"
+"* §10: the strings with property §11"
+msgstr ""
+
+#. §0: `L.concat M`
+#. §1: `L`
+#. §2: `M`
+#. §3: `w ∈ L.concat M ↔ ∃ u ∈ L, ∃ v ∈ M, w = u ++ v`
+#: Game.Doc.Definitions
+msgid "§0 contains every string that splits as a string of §1 followed by a\n"
+"string of §2:\n"
+"\n"
+"§3"
+msgstr ""
+
+#. §0: `parityA`
+#. §1: `¬ P`
+#. §2: `P`
+#. §3: `intro h`
+#. §4: `False`
+#. §5: `have`
+#. §6: `have h₁ := h [AB.a]`
+#. §7: `h`
+#. §8: `a`
+#. §9: `have h₂ : P := by ...`
+#. §10: `P`
+#: Game.Levels.DFA.L04_Counterexample
+msgid "Someone claims that §0 accepts *every* string. Show that they are wrong.\n"
+"\n"
+"§1 means *P leads to a contradiction*: to prove it, assume §2 with\n"
+"§3 and derive §4.\n"
+"\n"
+"The tactic §5 adds a new fact to your assumptions:\n"
+"§6 applies §7 to the string §8, and\n"
+"§9 proves §10 on the spot."
+msgstr ""
+
+#: GameServer.RpcHandlers
+msgid "level completed! 🎉"
+msgstr ""
+
+#. §0: `by_cases h : P`
+#. §1: `h : P`
+#. §2: `h : ¬ P`
+#: Game.Doc.Tactics
+msgid "§0 splits the proof into two cases, one with §1 and one\n"
+"with §2."
+msgstr ""
+
+#. §0: `List.count_cons_self`
+#. §1: `a`
+#. §2: `rw [«{ih}», List.count_cons_self]`
+#: Game.Levels.DFA.L10_Parity
+msgid "Use the induction hypothesis to rewrite the run on the left, and\n"
+"§0 to count the §1 on the right:\n"
+"§2."
+msgstr ""
+
+#. §0: `decide`
+#: Game.Doc.Tactics
+msgid "§0 answers a concrete yes-or-no question by computing, such as whether a\n"
+"machine accepts a particular string. It can't prove statements about *every* string."
+msgstr ""
+
+#. §0: `ext w`
+#. §1: `L = M`
+#. §2: `w ∈ L ↔ w ∈ M`
+#. §3: `w`
+#. §4: `A ↔ B`
+#. §5: `constructor`
+#. §6: `A → B`
+#. §7: `B → A`
+#. §8: `obtain h | h := h`
+#: Game.Levels.Strings.L07_Ext
+msgid "Two languages are equal when they contain the same strings. The tactic §0\n"
+"turns the goal §1 into §2 for an arbitrary string §3.\n"
+"\n"
+"An *iff* §4 is two implications, so §5 splits it into\n"
+"§6 and §7.\n"
+"\n"
+"Finally, an *or* in an assumption is taken apart into two cases with\n"
+"§8: one case where the left side holds, one where the right side holds."
+msgstr ""
+
+#: Game.Levels.DFA.L07_Append
+msgid "Reading in two parts"
+msgstr ""
+
+#. §0: `L ∩ M`
+#. §1: `L`
+#. §2: `M`
+#. §3: `constructor`
+#: Game.Levels.Strings.L05_Inter
+msgid "§0 contains the strings that are in §1 *and* in §2. To prove an *and*,\n"
+"prove both parts. The tactic §3 splits the goal into its two parts."
+msgstr ""
+
+#. §0: `«{h}»`
+#. §1: `obtain ⟨u, hu, v, hv, hw⟩ := «{h}»`
+#: Game.Levels.Strings.L09_ConcatUnion
+msgid "Take §0 apart into its pieces with §1."
+msgstr ""
+
+#. §0: `[a] ++ v`
+#. §1: `a`
+#. §2: `v`
+#: Game.Levels.Strings.L03_Rewrite
+msgid "Both sides now compute to the same list: §0 is §1 in front of §2."
 msgstr ""
 
 #. §0: `M.evalFrom q w`
@@ -118,9 +1275,305 @@ msgstr ""
 #. §4: `M.evalFrom q [] = q`
 #. §5: `M.evalFrom q (x :: xs) = M.evalFrom (M.step q x) xs`
 #: Game.Doc.Definitions
-msgid "§0 is the state the machine §1 is in after reading the\n"
-"string §2, starting from state §3. It reads one symbol at a time:\n"
+msgid "§0 is the state §1 is in after reading §2, starting in §3:\n"
 "\n"
 "* §4\n"
 "* §5"
+msgstr ""
+
+#: Game.Levels.Strings.L07_Ext
+msgid "Equal languages"
+msgstr ""
+
+#. §0: `n`
+#. §1: `n + 1`
+#: Game.Levels.DFA.L08_Omega
+msgid "If §0 is even, then §1 is odd."
+msgstr ""
+
+#. §0: `rw [if_pos «{h}»]`
+#: Game.Levels.DFA.L11_Language
+msgid "The count is even, so the run ends in the start state: §0."
+msgstr ""
+
+#. §0: `ext`
+#. §1: `Lang.union_comm`
+#: Game.Levels.Strings.L07_Ext
+msgid "This is the pattern for every equality of languages in the game: §0, then\n"
+"prove both directions.\n"
+"\n"
+"You proved a named result, §1. It is now in your inventory under\n"
+"*Theorems*, and you can use it in later levels."
+msgstr ""
+
+#. §0: `parityA`
+#: Game.Levels.DFA.L10_Parity
+msgid "You now know *exactly* what §0 does on every input. One last step:\n"
+"turn this into a description of the language it accepts."
+msgstr ""
+
+#: Game.Levels.DFA
+msgid "Deterministic Automata"
+msgstr ""
+
+#. §0: `w`
+#. §1: `w`
+#: Game.Levels.Strings.L02_Membership
+msgid "If §0 has length 2, then §1 is in the language of strings of length 2."
+msgstr ""
+
+#. §0: `constructor`
+#. §1: `obtain ⟨h₁, h₂⟩ := h`
+#. §2: `h : A ∧ B`
+#. §3: `h₁ : A`
+#. §4: `h₂ : B`
+#. §5: `⟨`
+#. §6: `\\<`
+#. §7: `⟩`
+#. §8: `\\>`
+#: Game.Levels.Strings.L06_Obtain
+msgid "§0 builds an *and*. To *use* an *and* that you have as an assumption,\n"
+"take it apart: §1 replaces §2 by §3 and §4.\n"
+"\n"
+"(Type §5 as §6 and §7 as §8.)"
+msgstr ""
+
+#. §0: `if`
+#: Game.Levels.DFA.L09_IfThenElse
+msgid "Now the left §0 takes its second branch, and the right one its first."
+msgstr ""
+
+#. §0: `M.accepts`
+#. §1: `M`
+#. §2: `M.start`
+#: Game.Doc.Definitions
+msgid "§0 is the language of §1: the strings whose run from §2\n"
+"ends in an accepting state."
+msgstr ""
+
+#. §0: `constructor`
+#: Game.Levels.Strings.L05_Inter
+msgid "Use §0 to split the goal into two."
+msgstr ""
+
+#: Game.Levels.Strings.L05_Inter
+msgid "Second part."
+msgstr ""
+
+#. §0: `even → odd → odd`
+#. §1: `rfl`
+#. §2: `step`
+#: Game.Levels.DFA.L01_Run
+msgid "You watched the run §0.\n"
+"\n"
+"(§1 would also have worked here: Lean can compute the whole run at once.\n"
+"§2 lets you see each state along the way.)\n"
+"\n"
+"Running a machine on a *concrete* string is computation. Soon you will prove\n"
+"things about runs on *every* string, where computing is no longer enough."
+msgstr ""
+
+#. §0: `a`
+#. §1: `AB`
+#: Game.Doc.Definitions
+#: Game.Doc.Definitions
+msgid "The symbol §0 of the alphabet §1."
+msgstr ""
+
+#. §0: `rw`
+#: Game.Levels.DFA.L09_IfThenElse
+msgid "§0 closes the goal by itself when both sides become identical."
+msgstr ""
+
+#: Game.Levels.DFA.L04_Counterexample
+msgid "A counterexample"
+msgstr ""
+
+#: Game.Levels.DFA.L03_Decide
+msgid "Let Lean check"
+msgstr ""
+
+#. §0: `ab`
+#. §1: `a`
+#. §2: `aba`
+#: Game.Levels.Strings.L01_Append
+msgid "Gluing §0 and §1 gives §2."
+msgstr ""
+
+#. §0: `parityA`
+#. §1: `if c then x else y`
+#. §2: `by_cases h : c`
+#. §3: `h : c`
+#. §4: `h : ¬ c`
+#. §5: `if_pos h`
+#. §6: `if_neg h`
+#. §7: `if`
+#. §8: `if_pos : c → (if c then x else y) = x`
+#. §9: `if_neg : ¬ c → (if c then x else y) = y`
+#: Game.Levels.DFA.L09_IfThenElse
+msgid "The answer to *where does §0 end up* depends on a condition:\n"
+"§1.\n"
+"\n"
+"To reason about it, split on whether the condition holds:\n"
+"§2 gives one goal with §3 and one with §4.\n"
+"Then §5 and §6 rewrite the §7 away:\n"
+"\n"
+"* §8\n"
+"* §9\n"
+"\n"
+"This level is the key step for the next one."
+msgstr ""
+
+#. §0: `a`
+#. §1: `«{q}»`
+#: Game.Levels.DFA.L10_Parity
+msgid "The empty string has no §0s, so both sides compute to §1."
+msgstr ""
+
+#. §0: `a`
+#. §1: `even`
+#. §2: `odd`
+#. §3: `step`
+#: Game.Levels.DFA.L01_Run
+msgid "The machine read §0 and moved from §1 to §2. One symbol is\n"
+"left: §3 again."
+msgstr ""
+
+#. §0: `step`
+#: Game.Levels.DFA.L02_Accepts
+msgid "Now run the machine with §0."
+msgstr ""
+
+#: Game.Levels.DFA.L08_Omega
+msgid "Even and odd numbers"
+msgstr ""
+
+#. §0: `constructor`
+#: Game.Levels.Strings.L07_Ext
+msgid "Split the *iff* with §0."
+msgstr ""
+
+#. §0: `obtain`
+#. §1: `constructor`
+#: Game.Levels.Strings.L06_Obtain
+msgid "§0 takes things apart; §1 puts them together."
+msgstr ""
+
+#. §0: `False`
+#. §1: `exfalso`
+#. §2: `exact «{h₂}» «{h'}»`
+#: Game.Levels.DFA.L11_Language
+msgid "Your assumptions contradict each other, but the goal isn't §0.\n"
+"Use §1 first, then §2."
+msgstr ""
+
+#. §0: `u = [AB.a]`
+#. §1: `v = [AB.b]`
+#. §2: `rfl`
+#. §3: `exact ⟨[AB.a], rfl, [AB.b], rfl, rfl⟩`
+#: Game.Levels.Strings.L08_Concat
+msgid "Which split works? Take §0 and §1. Each of the three\n"
+"remaining facts is true by computation, so each proof is §2.\n"
+"Try §3."
+msgstr ""
+
+#. §0: `even → odd → even`
+#. §1: `even`
+#: Game.Levels.DFA.L02_Accepts
+msgid "The run was §0, and §1 is accepting."
+msgstr ""
+
+#: Game.Levels.Strings.L04_Subset
+msgid "Every language is contained in its union with another language."
+msgstr ""
+
+#. §0: `generalizing`
+#: Game.Levels.DFA.L11_Language
+msgid "**World complete.** You proved that a machine recognises a language: the core\n"
+"skill of this game. The recipe was:\n"
+"\n"
+"1. describe the run from **every** state (induction, §0);\n"
+"2. read off acceptance from the start state.\n"
+"\n"
+"Next: machines that can guess."
+msgstr ""
+
+#: Game
+msgid "Prove the classic results about finite automata and regular languages,\n"
+"one level at a time."
+msgstr ""
+
+#: Game
+msgid "A game on finite automata and regular languages, built with lean4game."
+msgstr ""
+
+#. §0: `parityA`
+#. §1: `«{h}»`
+#. §2: `have h₁ := «{h}» [AB.a]`
+#: Game.Levels.DFA.L04_Counterexample
+msgid "Find a string that §0 rejects, and apply §1 to it,\n"
+"for example §2."
+msgstr ""
+
+#. §0: `decide`
+#. §1: `decide`
+#: Game.Levels.DFA.L03_Decide
+msgid "For a fixed string, acceptance is a yes-or-no question that a computer can\n"
+"answer by running the machine. The tactic §0 does exactly that.\n"
+"\n"
+"It only works on *concrete* questions: you cannot §1 something about\n"
+"every string."
+msgstr ""
+
+#. §0: `parityA`
+#. §1: `even`
+#. §2: `even`
+#. §3: `DFA.mem_accepts`
+#. §4: `w ∈ M.accepts ↔ M.evalFrom M.start w ∈ M.accept`
+#: Game.Levels.DFA.L02_Accepts
+msgid "Every DFA has a **start state** and a set of **accepting states**. It accepts\n"
+"a string if the run from the start state ends in an accepting state.\n"
+"\n"
+"§0 starts in §1 and accepts in §2.\n"
+"\n"
+"The theorem §3 unfolds acceptance:\n"
+"§4."
+msgstr ""
+
+#. §0: `ab`
+#. §1: `{a}`
+#. §2: `{b}`
+#: Game.Levels.Strings.L08_Concat
+msgid "§0 is in the concatenation of §1 and §2."
+msgstr ""
+
+#. §0: `intro h`
+#: Game.Levels.DFA.L04_Counterexample
+msgid "Assume the claim: §0."
+msgstr ""
+
+#. §0: `«{v}» ∈ «{M}» ∪ «{N}»`
+#. §1: `left`
+#. §2: `have hv' : «{v}» ∈ «{M}» ∪ «{N}» := by left; exact «{hv}»`
+#: Game.Levels.Strings.L09_ConcatUnion
+msgid "You need §0, which is itself an *or*. Inside angle\n"
+"brackets, you can't use §1, but you can prove it separately first:\n"
+"§2."
+msgstr ""
+
+#. §0: `exact h`
+#. §1: `h`
+#. §2: `h`
+#: Game.Levels.Strings.L02_Membership
+msgid "§0 closes a goal with a proof §1 you already have. Lean accepted §2 even\n"
+"though the goal was written as a membership: it unfolded the definition and saw\n"
+"the same statement underneath."
+msgstr ""
+
+#: Game.Levels.DFA.L05_FlipFlip
+msgid "Two flips"
+msgstr ""
+
+#: Game.Levels.DFA.L06_OnlyB
+msgid "Reading only b"
 msgstr ""

@@ -1,5 +1,9 @@
 import GameServer
+import Mathlib.Tactic.Common
+import Mathlib.Tactic.Cases
 import Game.Automata.Defs
 import Game.Automata.Examples
+import Game.Tactic.Step
 import Game.Doc.Tactics
 import Game.Doc.Definitions
+import Game.Doc.Theorems
