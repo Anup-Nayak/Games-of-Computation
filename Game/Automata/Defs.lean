@@ -2,6 +2,8 @@ import Mathlib.Data.Set.Basic
 import Mathlib.Data.List.Count
 import Mathlib.Data.Finite.Defs
 import Mathlib.Data.Finite.Prod
+import Mathlib.Data.Fintype.Powerset
+import Mathlib.Data.Fintype.Pigeonhole
 import Game.Tactic.StepAttr
 
 namespace Automata
@@ -112,6 +114,24 @@ def union (M₁ : DFA α σ₁) (M₂ : DFA α σ₂) : DFA α (σ₁ × σ₂) 
   M₁.prod M₂ {s | s.1 ∈ M₁.accept ∨ s.2 ∈ M₂.accept}
 
 end DFA
+
+/-! ## The subset construction -/
+
+namespace NFA
+variable {α σ : Type}
+
+/-- The subset construction: a DFA whose states are *sets* of states of `M`,
+tracking every state `M` could be in. -/
+def toDFA (M : NFA α σ) : DFA α (Set σ) where
+  step S x := {r | ∃ p ∈ S, r ∈ M.step p x}
+  start := {M.start}
+  accept := {S | ∃ q ∈ S, q ∈ M.accept}
+
+@[step_simp] theorem toDFA_step (M : NFA α σ) (S : Set σ) (x : α) :
+    M.toDFA.step S x = {r | ∃ p ∈ S, r ∈ M.step p x} := rfl
+theorem toDFA_start (M : NFA α σ) : M.toDFA.start = {M.start} := rfl
+
+end NFA
 
 /-! ## Regular languages -/
 

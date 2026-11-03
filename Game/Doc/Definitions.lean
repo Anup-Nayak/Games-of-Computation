@@ -131,3 +131,26 @@ DefinitionDoc Automata.Lang.IsRegular as "Lang.IsRegular"
 /-- `inferInstance` asks Lean to find a standard fact by itself, such as
 "a product of finite types is finite". -/
 DefinitionDoc inferInstance as "inferInstance"
+
+/--
+The subset construction `M.toDFA`, a DFA whose states are sets of states of `M`:
+
+* `M.toDFA.step S x = {r | ∃ p ∈ S, r ∈ M.step p x}`
+* start `{M.start}`; accepting sets: those containing an accepting state of `M`
+-/
+DefinitionDoc Automata.NFA.toDFA as "NFA.toDFA"
+
+/-- `anbn = {aⁿbⁿ | n ∈ ℕ}`: `w ∈ anbn ↔ ∃ n, w = List.replicate n .a ++ List.replicate n .b` -/
+DefinitionDoc Automata.anbn as "anbn"
+
+/-- `balanced = {w | w.count .a = w.count .b}` -/
+DefinitionDoc Automata.balanced as "balanced"
+
+/-- `List.replicate n x` is the string of `n` copies of `x`, like `xxx…x`. -/
+DefinitionDoc List.replicate as "List.replicate"
+
+/-- `w.count x` is the number of times the symbol `x` occurs in `w`. -/
+DefinitionDoc List.count as "List.count"
+
+/-- `Set σ` is the type of sets of elements of `σ`. If `σ` is finite, so is `Set σ`. -/
+DefinitionDoc Set as "Set"

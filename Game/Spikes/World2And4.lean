@@ -44,11 +44,6 @@ example : [AB.b, .a, .b, .a] ∈ containsAB.accepts := by
 
 /-! World 4: subset construction -/
 
-def NFA.toDFA (M : NFA α σ) : DFA α (Set σ) where
-  step S x := {r | ∃ p ∈ S, r ∈ M.step p x}
-  start := {M.start}
-  accept := {S | ∃ q ∈ S, q ∈ M.accept}
-
 /-- The strengthened statement: works for every starting set `S`. -/
 theorem NFA.toDFA_evalFrom (M : NFA α σ) (S : Set σ) (w : List α) :
     M.toDFA.evalFrom S w = {r | ∃ p ∈ S, M.Path p w r} := by

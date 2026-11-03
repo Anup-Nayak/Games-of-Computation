@@ -2,6 +2,8 @@ import Game.Levels.Strings
 import Game.Levels.DFA
 import Game.Levels.NFA
 import Game.Levels.Closure
+import Game.Levels.Subset
+import Game.Levels.NonRegular
 
 Title "Games of Computation"
 Introduction "
@@ -14,5 +16,8 @@ A game on finite automata and regular languages, built with lean4game.
 Languages "en"
 CaptionShort "Finite automata, proved"
 CaptionLong "Learn DFAs, NFAs, closure properties and non-regularity by proving them in Lean."
+
+/- Non-regularity only needs DFA results, but it belongs at the end of the story. -/
+Dependency Closure → NonRegular
 
 MakeGame

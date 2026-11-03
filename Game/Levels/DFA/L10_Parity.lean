@@ -56,4 +56,6 @@ turn this into a description of the language it accepts.
 
 NewTheorem List.count_cons_self List.count_cons_of_ne
 
+NewDefinition List.count
+
 end Automata
